@@ -16,7 +16,7 @@
         <meta charset="utf-8">
         <meta name="description" content="165c. uniques">
         <link rel="stylesheet" href="assets/css/main.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
         <script src="assets/js/sticky.js" type="text/javascript"></script>
 </head>
 
@@ -39,7 +39,7 @@
         <div class="nav">
             <ul>
                 <li><a href="index.php" class="active">Accueil</a></li>
-                <li><a href="#">Témoignage</a></li>
+                <li><a href="testimony.php">Témoignage</a></li>
                 <li><a href="login.php">Connexion</a></li>
             </ul>    
         </div>
