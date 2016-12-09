@@ -61,10 +61,7 @@
                             Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus. Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.
                         </p>
                     </div>
-
-                    <div id="button_introduction">
-                        <button>En savoir plus</button>
-                    </div>
+                    <button id="button_introduction">En savoir plus</button>
                 </div>
                 <div id="img_introduction">
                     <img src="assets/images/présentation.png" alt>
@@ -136,8 +133,8 @@
                 <p id="p_footer">
                     Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.
                 </p>
-                <div id="button_footer">
-                    <button>Plus d'info</button>
+                <div id="box_button_footer">
+                    <button id="button_footer">Plus d'info</button>
                 </div>
             </div>   
 

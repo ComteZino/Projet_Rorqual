@@ -6,6 +6,12 @@
  * and open the template in the editor.
  */
 
+    require_once('connexionBD.php');
+    
+    $testimony="SELECT * FROM temoignage";     
+    $table = $connexion->query($testimony);
+    
+
 ?>
 
 <!DOCTYPE HTML>
@@ -47,24 +53,16 @@
 
     <div id="main">
         <div id="testimony">
-            <div class="child_testimony">
+            
                 
-            </div>
-            <div class="child_testimony">
-                
-            </div>
-            <div class="child_testimony">
-                
-            </div>
-            <div class="child_testimony">
-                
-            </div>
-            <div class="child_testimony">
-                
-            </div>
-            <div class="child_testimony">
-                
-            </div>
+            <?php 
+                while($ligne = $table->fetch())
+                    {
+                        echo '<div class="child_testimony">';
+                        echo "<p><span>Auteur : </span> ".$ligne['auteur']." <span>Date de publication : </span> ".$ligne['date']."</p>";
+                        echo '</div>';
+                    }
+            ?>                       
         </div>
          
     </div>        

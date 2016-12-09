@@ -6,6 +6,11 @@
  * and open the template in the editor.
  */
 
+    require_once('connexionBD.php');
+    //On selectionne les données
+    $cursus = ('SELECT idCursus,niveau FROM CURSUS ORDER BY idCursus ASC');
+    $query_select = $connexion->query($cursus);
+
 ?>
 
 <!DOCTYPE HTML>
@@ -18,6 +23,7 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
         <script src="assets/js/sticky.js" type="text/javascript"></script>
+        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script><!-- Script pour l'outil d'édition de texte --> 
 </head>
 
 <body>
@@ -46,17 +52,46 @@
     </nav> 
 
     <div id="main">
-        <div id="titre">
-            
-        </div>
-        <div id="contenue">
-            
-        </div>
-        
+        <div id="box_testimony"> 
+            <h2>Création d'un témoignage</h2>
+            <form action="treatment/treatment_create_testimony.php" method="post">
+                <div id="titre">           
+                    <h3 id="h3_testimony">Titre du témoignage</h3>   
+                    <input name="titre" type="text" id="titre" />         
+                </div>
+                <div id="Catégorie">    
+                    <h3 id="h3_testimony">Catégorie</h3>   
+                    <select name="cat" id="cat">
+                        <option value="">Selectionnez une formation</option>
+
+                        <?php                  
+                            //On affiche les catégories dans la liste
+                            while($ligne = $query_select->fetch())
+                            {
+
+                                echo '<option value="'.$ligne['idCursus'].'">'.$ligne['niveau'].'</option>';
+                            }	
+                        ?>
+                    </select>
+                </div>
+                <div id="contenue">
+                    <h3 id="h3_testimony">Contenu du témoignage</h3>
+                    <textarea name="contenu" rows="10" cols="50" >
+                        <?php
+                            if (!empty($_POST["contenu"]))
+                            {
+                                echo stripcslashes(htmlspecialchars($_POST["contenu"],ENT_QUOTES));
+                            }
+                        ?>
+                    </textarea>
+                    <script type="text/javascript">
+                        CKEDITOR.replace( 'contenu' );// Mise en place de l'outil d'édition de texte précédement appelé 
+                    </script>           
+                </div>
+                <button id="button_testimony">Envoyer</button>
+            </form>
+        </div> 
     </div>        
-
-
-
 
     <aside><!-- Les à-cotés de la page --></aside>
     <article></article>
