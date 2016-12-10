@@ -57,8 +57,6 @@
 
     <div id="main">
         <div id="testimony">
-            
-                
             <?php 
                 while($ligne = $table->fetch())
                     {
@@ -66,9 +64,9 @@
                         echo '<div class="child_testimony">';
                         echo '<h2 id="h2_testimony"><a href="select-testimony.php?id='.$ligne['idTemoignage'].'">'.  $ligne['titre'] .'</a></h2>';
                         echo "<p>".$ligne['auteur']."</p>";
-                        echo "<p>".$ligne['date']."</p>";        
+                        echo "<p>".$ligne['dateTemoignage']."</p>";        
                          
-                        $niveau="SELECT niveau FROM cursus WHERE  idCursus=".$ligne['cursus_idCursus']."";
+                        $niveau="SELECT niveau FROM cursus WHERE  idCursus=".$ligne['idCursus']."";
                         $table2 = $connexion->query($niveau);
                         while($ligne2 = $table2->fetch())
                         {

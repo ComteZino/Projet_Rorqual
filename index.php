@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
 ?>
 
 <!DOCTYPE HTML>
@@ -35,7 +36,7 @@
     </div>  
     
     <?php
-        session_start();
+        
         $_SESSION["page"] = "index";
     
         if($_SESSION["connect"] != 1)

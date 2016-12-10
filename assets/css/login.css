@@ -31,7 +31,37 @@ and open the template in the editor.
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+
+select{
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.form_sign_up {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    width: 65%;
+    height: 380px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form_sign_up_comp{
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    width: 65%;
+    height: 720px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input,.form_sign_up input, .form_sign_up_comp input {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -42,13 +72,14 @@ and open the template in the editor.
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.form button, .form_sign_up button, .form_sign_up_comp button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #80578F;
   width: 100%;
   border: 0;
+  margin-top: 4%;
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
@@ -56,19 +87,19 @@ and open the template in the editor.
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+.form button:hover,.form_sign_up button:hover, .form_sign_up_comp button:hover, .form button:active, .form_sign_up button:active, .form_sign_up_comp button:active, .form button:focus, .form_sign_up button:focus, .form_sign_up_comp button:focus {
   background: #A6638A;
 }
-.form .message {
+.form .message, .form_sign_up .message, form_sign_up_comp .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 12px;
 }
-.form .message a {
+.form .message a, .form_sign_up .message a, form_sign_up_comp .message a {
   color: #4CAF50;
   text-decoration: none;
 }
-.form .register-form {
+.form .register-form, .form_sign_up .register-form, .form_sign_up_comp .register-form {
   display: none;
 }
 .container {

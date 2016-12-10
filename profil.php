@@ -24,19 +24,26 @@
     $table = $connexion->query($information);
     $ligne = $table -> fetch();
     
-    $parcourspro="SELECT * FROM parcourspro,professionnel WHERE professionnel.idEtud=parcourspro.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $parcourspro="SELECT * FROM parcourspro,professionnel WHERE professionnel.idEtud=parcourspro.idEtud AND professionnel.idEtud='".$idEtud."'";
     $tableParcourspro = $connexion->query($parcourspro);
     $ligneParcourspro = $tableParcourspro -> fetch();
     
-    $poursuiteEtude="SELECT * FROM poursuiteetude,professionnel WHERE professionnel.idEtud=poursuiteetude.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $poursuiteEtude="SELECT * FROM poursuiteetude,professionnel WHERE professionnel.idEtud=poursuiteetude.idEtud AND professionnel.idEtud='".$idEtud."'";
     $tablePoursuiteEtude = $connexion->query($poursuiteEtude);
     $lignePoursuiteEtude = $tablePoursuiteEtude -> fetch();
     
-    
-    
-    $testimony="SELECT * FROM temoignage,professionnel WhERE professionnel.idEtud=temoignage.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $testimony="SELECT * FROM temoignage,professionnel WhERE professionnel.idEtud=temoignage.idEtud AND professionnel.idEtud='".$idEtud."'";
     $tableTestimony = $connexion->query($testimony);
     $ligneTestimony = $tableTestimony -> fetch();
+    
+    $competence="SELECT *
+    FROM professionnel
+        JOIN posseder
+            ON professionnel.idEtud=posseder.idEtud
+                JOIN competence
+                    ON posseder.idCompetence=competence.idCompetence
+    WHERE professionnel.idEtud='".$idEtud."'";
+    $tableCompetence = $connexion->query($competence);
     
     
 ?>
@@ -101,11 +108,11 @@
             </div>
             <div id="box_profil_center">
                 <div id="profil_etude">
-                    <?php   
-                        echo "<p>".$lignePoursuiteEtude['formation']."</p>"; 
-                        echo "<p>".$lignePoursuiteEtude['anneeFormation']."</p>";   
-                        echo "<p>".$lignePoursuiteEtude['etablissement']."</p>"; 
-                        echo "<p>".$lignePoursuiteEtude['ville']."</p>"; 
+                    <?php  
+                        echo "<p>Effectué en ".$lignePoursuiteEtude['anneeFormation']."</p>";   
+                        echo "<p>pour la formation ".$lignePoursuiteEtude['formation']."</p>"; 
+                        echo "<p>dans l'entreprise ".$lignePoursuiteEtude['entreprise']."</p>"; 
+                        echo "<p>à ".$lignePoursuiteEtude['ville']."</p>"; 
                     ?>  
                     <div id="sous_profil_etude">
                         <h2>Dernier stage</h2>
@@ -113,10 +120,10 @@
                 </div>           
                 <div id="profil_entreprise">
                     <?php   
-                        echo "<p>".$ligneParcourspro['libelle']."</p>"; 
-                        echo "<p>".$ligneParcourspro['anneeEmbauche']."</p>";   
-                        echo "<p>".$ligneParcourspro['entreprise']."</p>"; 
-                        echo "<p>".$ligneParcourspro['ville']."</p>"; 
+                        echo "<p>Embauché le ".$ligneParcourspro['anneeEmbauche']."</p>";
+                        echo "<p>en tant que ".$ligneParcourspro['libelle']."</p>";
+                        echo "<p>au sein de la société ".$ligneParcourspro['entreprise']."</p>"; 
+                        echo "<p>à ".$ligneParcourspro['ville']."</p>"; 
                     ?>
                     <div id="sous_profil_entreprise">
                         <h2>Profession</h2>
@@ -125,8 +132,14 @@
             </div> 
             <div id="box_profil_bottom">
                 <div id="profil_competence">
+                    <?php        
+                            while($ligneCompetence = $tableCompetence -> fetch())
+                            {
+                                echo "<p>".$ligneCompetence['libelle']."</p>";
+                            }                           
+                        ?>
                     <div id="sous_profil_competence">
-                        <h2>Mes compétences</h2>
+                        <h2>Mes compétences</h2>                     
                     </div>
                 </div> 
             </div>   
@@ -146,6 +159,7 @@
                     </div>
                 </div> 
             </div> 
+            <button id="button_profil">modifier</button>
         </div>    
     </div>        
 

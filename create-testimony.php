@@ -71,7 +71,6 @@
                     <h3 id="h3_testimony">Catégorie</h3>   
                     <select name="cursus" id="cursus">
                         <option value="">Selectionnez une formation</option>
-
                         <?php                  
                             //On affiche les catégories dans la liste
                             while($ligne = $query_select->fetch())

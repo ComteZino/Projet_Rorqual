@@ -5,19 +5,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-    session_start();
-
-    require_once('connexionBD.php');
-    //On selectionne les données
-    $cursus = ('SELECT idCursus,niveau FROM CURSUS ORDER BY idCursus ASC');
-    $query_select = $connexion->query($cursus);
+session_start();
 ?>
 
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Inscription</title>
+    <title>Inscription complément</title>
     <meta charset="utf-8">
     <meta name="description" content="165c. uniques">
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -55,27 +50,20 @@
      ?>     
         
         <div id="main">
-            <h2 id="h2_login">Zone d'inscription</h2>
+            <h2 id="h2_login">Information supplémentaire</h2>
             <div class="login-page">
-                <div class="form_sign_up">
-                    <form class="login-form" action="treatment/treatment_sign_up.php" method="post">
-                        <input type="text" name="Prenom" placeholder="Prénom"  required/>
-                        <input type="text" name="Nom" placeholder="Nom"  required/>
-                        <input type="text" name="Identifiant" placeholder="Nom d'utilisateur" required/>
-                        <input type="password" name="Password" placeholder="Mot de passe" required/>
-                        <select name="cursus" id="cursus" required>
-                            <option value="">Selectionnez une formation</option>
-                                <?php                  
-                                    //On affiche les catégories dans la liste
-                                    while($ligne = $query_select->fetch())
-                                    {
-
-                                        echo '<option value="'.$ligne['idCursus'].'">'.$ligne['niveau'].'</option>';
-                                    }	
-                                ?>
-                        </select>
-                        <button>Créer</button>
-                        <p class="message">Déja enregistré ? <a href="login.php">Connexion</a></p>
+                <div class="form_sign_up_comp">
+                    <form class="login-form" action="treatment/treatment_sign_up_complement.php" method="post">
+                        <h3>Dernier stage effectué*</h3>
+                        <input type="text" name="anneeFormation" placeholder="Année de formation"  required/>
+                        <input type="text" name="entrepriseStage" placeholder="entreprise"  required/>
+                        <input type="text" name="villeStage" placeholder="Ville"  required/>
+                        <h3>Profession</h3>
+                        <input type="text" name="libelle" placeholder="Libellé"/>
+                        <input type="text" name="anneeEmbauche" placeholder="Année d'embauche"/>
+                        <input type="text" name="entrepriseProfession" placeholder="entreprise"/>
+                        <input type="text" name="villeProfession" placeholder="Ville"/>
+                        <button>Valider</button>
                   </form>
                 </div>
             </div>

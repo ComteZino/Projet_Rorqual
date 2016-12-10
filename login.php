@@ -7,10 +7,10 @@
  */
 
 session_start();
-$_SESSION["page"] = "login";
 session_destroy();
-
-
+session_start();
+$_SESSION["page"] = "login";
+$_SESSION["connect"] = 0;
 ?>
 
 <!DOCTYPE HTML>
@@ -55,8 +55,8 @@ session_destroy();
         <div class="login-page">
             <div class="form">
               <form class="login-form" action="treatment/treatment_login.php" method="post" >           
-                <input type="text" name="Identifiant" placeholder="Nom d'utilisateur"/>
-                <input type="password" name="Password" placeholder="Mot de passe"/>
+                <input type="text" name="Identifiant" placeholder="Nom d'utilisateur"  required/>
+                <input type="password" name="Password" placeholder="Mot de passe"  required/>
                 <button>Connexion</button>
                 <p class="message">Pas encore de compte ? <a href="sign-up.php">Créer un compte</a></p>
               </form>

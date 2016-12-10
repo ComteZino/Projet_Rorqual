@@ -32,7 +32,7 @@
 
 
     
-    $ajout_temoignage = ('INSERT INTO temoignage VALUES (2,"'.$nom.$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idCursus.'","'.$idEtud.'")');
+    $ajout_temoignage = ('INSERT INTO temoignage VALUES (2,"'.$nom." ".$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idEtud.'","'.$idCursus.'")');
     //echo $ajout_temoignage;
     $exec_temoig = $connexion->exec($ajout_temoignage);
  
