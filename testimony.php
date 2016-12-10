@@ -6,10 +6,14 @@
  * and open the template in the editor.
  */
 
+    session_start();
+
     require_once('connexionBD.php');
     
     $testimony="SELECT * FROM temoignage";     
     $table = $connexion->query($testimony);
+    
+    $_SESSION["page"] = "testimony";
     
 
 ?>
@@ -40,16 +44,18 @@
             </p>
         </header>
     </div>  
-
-    <nav>
-        <div class="nav">
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="testimony.php" class="active">Témoignage</a></li>
-                <li><a href="login.php">Connexion</a></li>
-            </ul>    
-        </div>
-    </nav> 
+    
+    <?php
+        
+    
+        if($_SESSION["connect"] != 1)
+        {
+        include 'nav-offline.php';
+        }
+        else{
+        include 'nav-online.php';
+        }
+     ?>   
 
     <div id="main">
         <div id="testimony">
@@ -58,17 +64,25 @@
             <?php 
                 while($ligne = $table->fetch())
                     {
+                        
                         echo '<div class="child_testimony">';
-                        echo "<p><span>Auteur : </span> ".$ligne['auteur']." <span>Date de publication : </span> ".$ligne['date']."</p>";
+                        echo '<h2 id="h2_testimony"><a href="select-testimony.php?id='.$ligne['idTemoignage'].'">'.  $ligne['titre'] .'</a></h2>';
+                        echo "<p>".$ligne['auteur']."</p>";
+                        echo "<p>".$ligne['date']."</p>";        
+                        
+                        
+                        $niveau="SELECT niveau FROM cursus WHERE  idCursus=".$ligne['cursus_idCursus']."";
+                        $table = $connexion->query($niveau);
+                        $ligne = $table -> fetch();
+                        $niveau=$ligne['niveau'];
+                        
+                        echo "<p>".$niveau."</p>";
                         echo '</div>';
                     }
             ?>                       
         </div>
          
     </div>        
-
-
-
 
     <aside><!-- Les à-cotés de la page --></aside>
     <article></article>
@@ -81,8 +95,8 @@
                 <p id="p_footer">
                     Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.
                 </p>
-                <div id="button_footer">
-                    <button>Plus d'info</button>
+                <div id="box_button_footer">
+                    <button id="button_footer">Plus d'info</button>
                 </div>
             </div>   
 
@@ -104,4 +118,3 @@
     </footer>   
 </body>
 </html>
-

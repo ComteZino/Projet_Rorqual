@@ -7,9 +7,8 @@
  */
 
     session_start();
-    
-    echo $_SESSION["connect"];
-    
+    $_SESSION["page"] = "create-testimony";
+   
     if($_SESSION["connect"] != 1)
     {
         header('Location: login.php ');
@@ -19,9 +18,6 @@
     //On selectionne les données
     $cursus = ('SELECT idCursus,niveau FROM CURSUS ORDER BY idCursus ASC');
     $query_select = $connexion->query($cursus);
-    //$ligne['idCursus'];
-    //echo $ligne;
-
 ?>
 
 <!DOCTYPE HTML>
@@ -52,18 +48,19 @@
         </header>
     </div>  
 
-    <nav>
-        <div class="nav">
-            <ul>
-                <li><a href="index.php" class="active">Accueil</a></li>
-                <li><a href="testimony.php">Témoignage</a></li>
-                <li><a href="login.php">Connexion</a></li>
-            </ul>    
-        </div>
-    </nav> 
-
+    <?php
+    
+        if($_SESSION["connect"] != 1)
+        {
+        include 'nav-offline.php';
+        }
+        else{
+        include 'nav-online.php';
+        }
+     ?>
+    
     <div id="main">
-        <div id="box_testimony"> 
+        <div id="box_create_testimony"> 
             <h2>Création d'un témoignage</h2>
             <form action="treatment/treatment_create_testimony.php" method="post">
                 <div id="titre">           
@@ -115,8 +112,8 @@
                 <p id="p_footer">
                     Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.
                 </p>
-                <div id="button_footer">
-                    <button>Plus d'info</button>
+                <div id="box_button_footer">
+                    <button id="button_footer">Plus d'info</button>
                 </div>
             </div>   
 

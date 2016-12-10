@@ -6,24 +6,24 @@
  * and open the template in the editor.
  */
 
-    /*session_start();
+    session_start();
 
     if($_SESSION["connect"] != 1)
     {
         header('Location: login.php ');
-    }*/
+    }
 
     require_once('/../connexionBD.php');
 
-    // on teste la déclaration de nos variables
+    $idEtud = $_SESSION['$idEtud'];
     
-    $idEtud = $_SESSION['idEtud'];
-    //echo $idEtud;
-    $select_auteur = $connexion->query('Select login from professionnel where idEtud='.$idEtud.';');
-    $auteur = $select_auteur->fetch();
-    $auteur = $auteur["login"];
+    $tableuser="SELECT nom, prenom FROM professionnel WHERE idEtud='".$idEtud."'";
+    $table = $connexion->query($tableuser);
+    $ligne = $table -> fetch();
     
-   
+    $nom=$ligne['nom'];
+    $prenom=$ligne['prenom'];
+    
     $titre = htmlentities($_POST["titre"]);
     $contenu = htmlentities($_POST["contenu"]);
     $date = date("Y-m-d-");
@@ -31,7 +31,7 @@
 
 
     
-    $ajout_temoignage = ('INSERT INTO temoignage VALUES (2,"test","'.$titre.'","'.$contenu.'","'.$date.'","'.$idCursus.'")');
+    $ajout_temoignage = ('INSERT INTO temoignage VALUES (3,"'.$nom.$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idCursus.'")');
     //echo $ajout_temoignage;
     $exec_temoig = $connexion->exec($ajout_temoignage);
  

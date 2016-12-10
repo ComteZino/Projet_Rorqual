@@ -5,7 +5,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 ?>
 
 <!DOCTYPE HTML>
@@ -34,17 +33,20 @@
             </p>
         </header>
     </div>  
-
-    <nav>
-        <div class="nav">
-            <ul>
-                <li><a href="index.php" class="active">Accueil</a></li>
-                <li><a href="testimony.php">Témoignage</a></li>
-                <li><a href="login.php">Connexion</a></li>
-            </ul>    
-        </div>
-    </nav> 
-
+    
+    <?php
+        session_start();
+        $_SESSION["page"] = "index";
+    
+        if($_SESSION["connect"] != 1)
+        {
+        include 'nav-offline.php';
+        }
+        else{
+        include 'nav-online.php';
+        }
+     ?>    
+    
     <div id="main">
         <div id="introduction">
             <div id="box_introduction">
@@ -85,7 +87,7 @@
                     <div class="child">
                         <img src="assets/images/testimony.png" alt>
                         <h3>
-                            Témoignage
+                            <a href="create-testimony.php">Témoignage</a>
                         </h3>
                         <p>
                             Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.
@@ -95,7 +97,7 @@
                     <div class="child">
                         <img src="assets/images/graphic.png" alt>
                         <h3>
-                            Compétences
+                            <a href="profil.php">Compétences</a>
                         </h3>
                         <p>
                             Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.
@@ -105,7 +107,7 @@
                     <div class="child">
                         <img src="assets/images/consultation.png" alt>
                         <h3>
-                            Consultation
+                            <a href="testimony.php">Consultation</a>
                         </h3>
                         <p>
                             Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.

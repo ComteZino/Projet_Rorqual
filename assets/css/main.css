@@ -163,6 +163,10 @@ a{
     pading : 1%;
 }
 
+a:hover{
+    color : #9F648E;
+}
+
 
 p{
     font: inherit;
@@ -210,6 +214,14 @@ h2{
     font-weight: 300;
     line-height: 1.5;
     margin: 0 0 0.4em 0;
+    letter-spacing: -0.025em;
+}
+
+#h2_testimony{
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0 0 0 0;
     letter-spacing: -0.025em;
 }
 
@@ -391,16 +403,30 @@ h3{
 .child_testimony{
     display: block;
     max-width: 100%;
-    padding-bottom: 10%;
+    padding-bottom: 1%;
+    margin: 2%;
     border : solid 2px black;
     
 }
 
-#box_testimony{
+#box_create_testimony{
     display: block;
     padding-bottom: 1%;
     margin : 0 10% 0 10%;
     padding-top: 4%;   
+}
+
+#box_select_testimony{
+    display: block;
+    max-width: 100%;
+    padding-bottom: 1%;   
+}
+
+#child_select_testimony{
+    display: block;
+    max-width: 100%;
+    padding-bottom: 1%;
+    margin: 2%;
 }
 
 #footer{

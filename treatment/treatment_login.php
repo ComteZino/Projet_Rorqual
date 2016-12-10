@@ -24,18 +24,18 @@
     $table = $connexion->query($tableuser);
     
     
+    $ligne = $table -> fetch();
     
-    
-    
-    /*$idEtud=$ligne['idEtud'];
+    $idEtud=$ligne['idEtud'];
     echo $idEtud;
     
-    $_SESSION['idEtud'] = $idEtud;*/
-    $ligne = $table -> fetch();
+    $_SESSION['$idEtud'] = $idEtud;
+    echo $_SESSION['$idEtud'];
+    
     if(!empty($ligne))
     {
         $_SESSION["connect"] = 1;
-        header('Location: ../create-testimony.php ');
+        header('Location: ../index.php ');
     }
     else
     {
