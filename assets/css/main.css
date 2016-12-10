@@ -459,10 +459,14 @@ h3{
 #box_profil{
     overflow: hidden;
     display: block;
-    max-width: 90%;
+    max-width: 100%;
     margin: 10px auto auto auto;
     padding-bottom: 1%;
-    border : 2px solid black
+}
+
+#box_profil_complement{
+    display: block;
+    margin: 0 auto 0 6%;
 }
 
 #box_profil_top p{
@@ -483,8 +487,8 @@ h3{
     display: block;
     min-width: 80%;
     max-width: 80%;
-    margin: 20px auto auto auto;
     padding-bottom: 1%; 
+    margin: 0 auto;
 }
 
 #box_profil_top h2 {
@@ -504,7 +508,8 @@ h3{
     min-width: 80%;
     max-width: 80%;
     margin: 20px auto auto auto;
-    padding-bottom: 1%; 
+    padding-bottom: 1%;
+    margin: 0 auto;
 }
 
 #box_profil_center p{
@@ -538,6 +543,7 @@ h3{
     margin: 20px auto auto auto;
     padding-bottom: 1%; 
     border : solid 2px black;
+    margin: 0 auto;
 }
 
 #box_profil_footer{
@@ -547,21 +553,21 @@ h3{
     margin: 20px auto auto auto;
     padding-bottom: 1%; 
     border : solid 2px black;
+    margin: 0 auto;
 }
 
 #profil_picture{
     background-color: #f7f7f7;
     float: left;
     min-width: 35%;
-    margin: 1% auto auto 5%;
+    margin: 1% 0% 0% 8%;
     padding-top: 15%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 #logo_profil{
     max-width: 80%;
-    /*margin: 20px auto auto auto;*/
-    margin-left: 16%;
+    margin: 0% auto;
 }
 
 #profil_picture:hover {
@@ -570,9 +576,9 @@ h3{
 
 #profil_information{
     background-color: #ECEFF1;
-    float: left;
+    float: right;
     min-width: 35%;
-    margin: 1% auto auto 5%;
+    margin: 1% 8% 0% 0%;
     padding-top: 12%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
 }
@@ -592,7 +598,7 @@ h3{
     background-color: #42A5F5;
     float: left;
     min-width: 35%;
-    margin: 1% auto auto 5%;
+    margin: 1% 0% 0% 8%;
     padding-top: 1%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);    
 }
@@ -610,9 +616,9 @@ h3{
 
 #profil_entreprise{
     background-color: #42A5F5;
-    float: left;
+    float: right;
     min-width: 35%;
-    margin: 1% auto auto 5%;
+    margin: 1% 8% 0% 0%;
     padding-top: 1%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);   
 }
@@ -631,10 +637,13 @@ h3{
 #profil_competence{
     background-color: #D4E157;
     float: left;
-    min-width: 73%;
-    margin: 1% auto auto 5%;
-    padding-top: 1%;
+    display:block;
+    
+    
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    
+    margin: 0 auto;
+    min-width: 73%;
 }
 
 #profil_competence:hover {
@@ -646,6 +655,8 @@ h3{
     border:none;
     display:block;
     background-color : #EF5350;
+    margin: 0 auto;
+
 }
 
 #profil_testimony{
@@ -655,6 +666,7 @@ h3{
     margin: 1% auto auto 5%;
     padding-top: 1%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin: 0 auto;
 }
 
 #profil_testimony:hover {

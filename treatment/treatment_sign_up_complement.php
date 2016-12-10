@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+    session_start();
     require_once('/../connexionBD.php');
 
     //Récupération information stage
@@ -20,9 +20,7 @@
     $villeProfession = htmlentities($_POST["villeProfession"]);
     
     //Récupération de l'id de l'étudiant qui ajoute le compte
-    $selectId = $connexion->query('Select * from professionnel');
-    $ligneid = $selectId->fetch();
-    $idEtud = $ligneid["idEtud"];
+    $idEtud = $_SESSION["idCompte"];
     
     //Récupération du niveau du cursur (libele)
     $selectNiveauCursus = $connexion->query('Select * from professionnel, cursus where professionnel.idEtud=cursus.idCursus and idEtud="'.$idEtud.'"');

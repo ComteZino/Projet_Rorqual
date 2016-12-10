@@ -35,14 +35,8 @@
     $testimony="SELECT * FROM temoignage,professionnel WhERE professionnel.idEtud=temoignage.idEtud AND professionnel.idEtud='".$idEtud."'";
     $tableTestimony = $connexion->query($testimony);
     $ligneTestimony = $tableTestimony -> fetch();
-    
-    $competence="SELECT *
-    FROM professionnel
-        JOIN posseder
-            ON professionnel.idEtud=posseder.idEtud
-                JOIN competence
-                    ON posseder.idCompetence=competence.idCompetence
-    WHERE professionnel.idEtud='".$idEtud."'";
+    //JOIN posseder ON professionnel.idEtud=posseder.idEtud JOIN competence ON posseder.idCompetence=competence.idCompetence
+    $competence="SELECT * FROM competence JOIN cursus ON cursus.idCursus=competence.idCursus JOIN professionnel ON professionnel.idCursus=cursus.idCursus   WHERE professionnel.idEtud='".$idEtud."'";
     $tableCompetence = $connexion->query($competence);
     
     
@@ -90,76 +84,78 @@
     
     <div id="main">
         <div id="box_profil">
-            <div id="box_profil_top">
-                <div id="profil_picture">
-                    <div id="logo_profil">
-                        <img src="assets/images/profil.png" alt>
+            <form method="post" action="modif-profil.php">  
+                <div id="box_profil_top">
+                    <div id="profil_picture">
+                        <div id="logo_profil">
+                            <img src="assets/images/profil.png" alt>
+                        </div>
                     </div>
+                    <div id="profil_information">
+                        <?php   
+                            echo "<p>".$ligne['prenom']."</p>"; 
+                            echo "<p>".$ligne['nom']."</p>";  
+                        ?>   
+                        <div id="sous_profil_information">
+                            <h2>Profil</h2>
+                        </div>
+                    </div>  
                 </div>
-                <div id="profil_information">
-                    <?php   
-                        echo "<p>".$ligne['prenom']."</p>"; 
-                        echo "<p>".$ligne['nom']."</p>";  
-                    ?>   
-                    <div id="sous_profil_information">
-                        <h2>Profil</h2>
-                    </div>
-                </div>  
-            </div>
-            <div id="box_profil_center">
-                <div id="profil_etude">
-                    <?php  
-                        echo "<p>Effectué en ".$lignePoursuiteEtude['anneeFormation']."</p>";   
-                        echo "<p>pour la formation ".$lignePoursuiteEtude['formation']."</p>"; 
-                        echo "<p>dans l'entreprise ".$lignePoursuiteEtude['entreprise']."</p>"; 
-                        echo "<p>à ".$lignePoursuiteEtude['ville']."</p>"; 
-                    ?>  
-                    <div id="sous_profil_etude">
-                        <h2>Dernier stage</h2>
-                    </div>
-                </div>           
-                <div id="profil_entreprise">
-                    <?php   
-                        echo "<p>Embauché le ".$ligneParcourspro['anneeEmbauche']."</p>";
-                        echo "<p>en tant que ".$ligneParcourspro['libelle']."</p>";
-                        echo "<p>au sein de la société ".$ligneParcourspro['entreprise']."</p>"; 
-                        echo "<p>à ".$ligneParcourspro['ville']."</p>"; 
-                    ?>
-                    <div id="sous_profil_entreprise">
-                        <h2>Profession</h2>
-                    </div>
-                </div>
-            </div> 
-            <div id="box_profil_bottom">
-                <div id="profil_competence">
-                    <?php        
-                            while($ligneCompetence = $tableCompetence -> fetch())
-                            {
-                                echo "<p>".$ligneCompetence['libelle']."</p>";
-                            }                           
+                <div id="box_profil_center">
+                    <div id="profil_etude">
+                        <?php  
+                            echo "<p>Effectué en ".$lignePoursuiteEtude['anneeFormation']."</p>";   
+                            echo "<p>pour la formation ".$lignePoursuiteEtude['formation']."</p>"; 
+                            echo "<p>dans l'entreprise ".$lignePoursuiteEtude['entreprise']."</p>"; 
+                            echo "<p>à ".$lignePoursuiteEtude['ville']."</p>"; 
+                        ?>  
+                        <div id="sous_profil_etude">
+                            <h2>Dernier stage</h2>
+                        </div>
+                    </div>           
+                    <div id="profil_entreprise">
+                        <?php   
+                            echo "<p>Embauché le ".$ligneParcourspro['anneeEmbauche']."</p>";
+                            echo "<p>en tant que ".$ligneParcourspro['libelle']."</p>";
+                            echo "<p>au sein de la société ".$ligneParcourspro['entreprise']."</p>"; 
+                            echo "<p>à ".$ligneParcourspro['ville']."</p>"; 
                         ?>
-                    <div id="sous_profil_competence">
-                        <h2>Mes compétences</h2>                     
+                        <div id="sous_profil_entreprise">
+                            <h2>Profession</h2>
+                        </div>
                     </div>
                 </div> 
-            </div>   
-            <div id="box_profil_footer">
-                <div id="profil_testimony">
-                    <?php                    
-                        $testimony2="SELECT * FROM temoignage";     
-                        $table2 = $connexion->query($testimony2);
-                        
-                        while($ligne2 = $table2->fetch())
-                        {
-                           echo '<h2 id="h2_testimony"><a href="select-testimony.php?id='.$ligne2['idTemoignage'].'">'.  $ligne2['titre'] .'</a></h2>'; 
-                        }
-                    ?>
-                    <div id="sous_profil_testimony">
-                        <h2>Mes témoignages</h2>
-                    </div>
+                <div id="box_profil_bottom">
+                    <div id="profil_competence">
+                        <?php        
+                                while($ligneCompetence = $tableCompetence -> fetch())
+                                {
+                                    echo "<p>".$ligneCompetence['libelle']."</p>";
+                                }                           
+                            ?>
+                        <div id="sous_profil_competence">
+                            <h2>Mes compétences</h2>                     
+                        </div>
+                    </div> 
+                </div>   
+                <div id="box_profil_footer">
+                    <div id="profil_testimony">
+                        <?php                    
+                            $testimony2="SELECT * FROM temoignage";     
+                            $table2 = $connexion->query($testimony2);
+
+                            while($ligne2 = $table2->fetch())
+                            {
+                               echo '<h2 id="h2_testimony"><a href="select-testimony.php?id='.$ligne2['idTemoignage'].'">'.  $ligne2['titre'] .'</a></h2>'; 
+                            }
+                        ?>
+                        <div id="sous_profil_testimony">
+                            <h2>Mes témoignages</h2>
+                        </div>
+                    </div> 
                 </div> 
-            </div> 
-            <button id="button_profil">modifier</button>
+                <button id="button_profil">modifier</button>
+            </form>
         </div>    
     </div>        
 

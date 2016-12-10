@@ -35,11 +35,13 @@
     if(!empty($ligne))
     {
         $_SESSION["connect"] = 1;
+        $_SESSION["message"] = null;
         header('Location: ../index.php ');
     }
     else
     {
         $_SESSION["connect"] = 0;
+        $_SESSION["message"] = "Erreur dans les identifiants";
         header('Location: ../login.php');
     }
     

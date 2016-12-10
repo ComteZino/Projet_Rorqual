@@ -5,12 +5,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-session_start();
-session_destroy();
+   
 session_start();
 $_SESSION["page"] = "login";
 $_SESSION["connect"] = 0;
+if(empty($_SESSION["message"]))
+{
+    $_SESSION["message"] = null;
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -54,7 +56,8 @@ $_SESSION["connect"] = 0;
         <h2 id="h2_login">Zone de connexion</h2>
         <div class="login-page">
             <div class="form">
-              <form class="login-form" action="treatment/treatment_login.php" method="post" >           
+              <form class="login-form" action="treatment/treatment_login.php" method="post" >   
+                  <?php echo $_SESSION["message"]; ?>
                 <input type="text" name="Identifiant" placeholder="Nom d'utilisateur"  required/>
                 <input type="password" name="Password" placeholder="Mot de passe"  required/>
                 <button>Connexion</button>

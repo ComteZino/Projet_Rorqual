@@ -4,8 +4,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-
+ */ 
+    session_start();
     require_once('/../connexionBD.php');
 
     
@@ -23,7 +23,7 @@
         $idCompte = $ligneid["idEtud"];
     }
     $idCompte = $idCompte + 1;
-  
+    $_SESSION["idCompte"] = $idCompte;
     
     $ajout_compte = ('INSERT INTO professionnel VALUES ("'.$nom.'","'.$prenom.'","'.$pseudo.'","'.$mdp.'","'.$idCompte.'","'.$idCursus.'")');
     //echo $ajout_compte;
