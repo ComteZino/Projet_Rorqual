@@ -159,7 +159,7 @@ a{
     -ms-transition: color 0.2s ease, border-bottom 0.2s ease;
     transition: color 0.2s ease, border-bottom 0.2s ease;
     text-decoration: none;
-    color: inherit;
+    color: #615195;
     pading : 1%;
 }
 
@@ -428,6 +428,146 @@ h3{
     padding-bottom: 1%;
     margin: 2%;
 }
+
+
+#box_profil{
+    overflow: hidden;
+    display: block;
+    max-width: 90%;
+    margin: 70px auto auto auto;
+    padding-bottom: 1%; 
+    border : solid 2px black;
+}
+
+#box_profil_top p{
+    font: inherit;
+    font-size: 0.90em;
+    letter-spacing: -0.025em;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; ;
+}
+
+#box_profil_center p{
+    color : #EAEAEA;
+    font: inherit;
+    font-size: 0.90em;
+    letter-spacing: -0.025em;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; ;
+}
+
+#box_profil_top{
+    overflow: hidden;
+    display: block;
+    max-width: 90%;
+    margin: 70px auto auto auto;
+    padding-bottom: 1%; 
+    border : solid 2px black;
+}
+
+#box_profil_center{
+    overflow: hidden;
+    display: block;
+    max-width: 90%;
+    margin: 70px auto auto auto;
+    padding-bottom: 1%; 
+    border : solid 2px black;
+}
+
+#box_profil_bottom{
+    overflow: hidden;
+    display: block;
+    max-width: 90%;
+    margin: 70px auto auto auto;
+    padding-bottom: 1%; 
+    border : solid 2px black;
+}
+
+#profil_picture{
+    background-color: #EF5350;
+    float: left;
+    min-width: 25%;
+    margin: 1% auto auto 5%;
+    padding: 5% 1% 10% 1%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#profil_picture:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#profil_information{
+    background-color: #ECEFF1;
+    float: left;
+    min-width: 25%;;
+    margin: 1% auto auto 5%;
+    padding: 5% 1% 10% 1%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#profil_information:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#profil_etude{
+    background-color: #42A5F5;
+    float: left;
+    min-width: 25%;
+    margin: 1% auto auto 5%;
+    padding-top: 1%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);    
+}
+
+#profil_etude:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#profil_etude p {
+  padding: 2% 1% 1% 6%;
+}
+
+
+#sous_profil_etude{
+    padding-bottom: 10%;
+    border:none;
+    display:block;
+    background-color : #ECEFF1;
+}
+
+#profil_entreprise{
+    background-color: #42A5F5;
+    float: left;
+    min-width: 25%;
+    margin: 1% auto auto 5%;
+    padding: 5% 1% 10% 1%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#profil_entreprise:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#profil_competence{
+  background-color: #D4E157;
+  float: left;
+  min-width: 25%;
+  margin: 1% auto auto 5%;
+  padding: 5% 1% 10% 1%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#profil_competence:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
 
 #footer{
     overflow: hidden;
