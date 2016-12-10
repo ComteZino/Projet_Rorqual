@@ -77,9 +77,9 @@
         <div id="box_profil">
             <div id="box_profil_top">
                 <div id="profil_picture">
-                    <span class="logo">
-                        <img src="assets/images/logo.png" alt>
-                    </span>
+                    <div id="logo_profil">
+                        <img src="assets/images/profil.png" alt>
+                    </div>
                 </div>
                 <div id="profil_information">
                     <?php   
@@ -117,6 +117,9 @@
             </div> 
             <div id="box_profil_bottom">
                 <div id="profil_competence">
+                    <div id="sous_profil_competence">
+                        <h2>Mes compétences</h2>
+                    </div>
                 </div> 
             </div>     
         </div>    
