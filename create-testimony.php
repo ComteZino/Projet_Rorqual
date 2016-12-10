@@ -6,10 +6,21 @@
  * and open the template in the editor.
  */
 
+    session_start();
+    
+    echo $_SESSION["connect"];
+    
+    if($_SESSION["connect"] != 1)
+    {
+        header('Location: login.php ');
+    }
+
     require_once('connexionBD.php');
     //On selectionne les données
     $cursus = ('SELECT idCursus,niveau FROM CURSUS ORDER BY idCursus ASC');
     $query_select = $connexion->query($cursus);
+    //$ligne['idCursus'];
+    //echo $ligne;
 
 ?>
 
@@ -61,7 +72,7 @@
                 </div>
                 <div id="Catégorie">    
                     <h3 id="h3_testimony">Catégorie</h3>   
-                    <select name="cat" id="cat">
+                    <select name="cursus" id="cursus">
                         <option value="">Selectionnez une formation</option>
 
                         <?php                  
@@ -127,4 +138,3 @@
     </footer>   
 </body>
 </html>
-

@@ -33,7 +33,7 @@ body {
     font-size: 17pt;
     font-weight: 300;
     line-height: 1.65;
-	}
+}
 
 body.is-loading *, body.is-loading *:before, body.is-loading *:after {
     -moz-animation: none !important;
@@ -44,7 +44,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
     -webkit-transition: none !important;
     -ms-transition: none !important;
     transition: none !important;
-    }
+}
 
 .header{
     
@@ -89,6 +89,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 
 .nav ul li a:hover {
     background-color: rgba(222, 222, 222, 0.25);
+    border-radius: 8px;
 }
 
 .nav ul li{
@@ -97,7 +98,6 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
     margin: 2% 0.35em;
     padding: 0;
     vertical-align: middle;
-
 }
 
 .nav ul li a.active {
