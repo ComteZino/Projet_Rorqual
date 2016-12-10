@@ -24,6 +24,10 @@
     $table = $connexion->query($information);
     $ligne = $table -> fetch();
     
+    $parcourspro="SELECT * FROM parcourspro,professionnel WhERE professionnel.idEtud=parcourspro.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $tableParcourspro = $connexion->query($parcourspro);
+    $ligneParcourspro = $tableParcourspro -> fetch();
+    
     $poursuiteEtude="SELECT * FROM poursuiteetude,professionnel WhERE professionnel.idEtud=poursuiteetude.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
     $tablePoursuiteEtude = $connexion->query($poursuiteEtude);
     $lignePoursuiteEtude = $tablePoursuiteEtude -> fetch();
@@ -70,32 +74,45 @@
      ?>
     
     <div id="main">
-        test
         <div id="box_profil">
             <div id="box_profil_top">
                 <div id="profil_picture">
+                    <span class="logo">
+                        <img src="assets/images/logo.png" alt>
+                    </span>
                 </div>
                 <div id="profil_information">
                     <?php   
                         echo "<p>".$ligne['prenom']."</p>"; 
                         echo "<p>".$ligne['nom']."</p>";  
-                    ?>                   
+                    ?>   
+                    <div id="sous_profil_information">
+                        <h2>Profil</h2>
+                    </div>
                 </div>  
             </div>
             <div id="box_profil_center">
                 <div id="profil_etude">
                     <?php   
-                        echo "<p>Formation : ".$lignePoursuiteEtude['formation']."</p>"; 
-                        echo "<p>Année : ".$lignePoursuiteEtude['anneeFormation']."</p>";   
-                        echo "<p>Établissement : ".$lignePoursuiteEtude['etablissement']."</p>"; 
-                        echo "<p>Ville : ".$lignePoursuiteEtude['ville']."</p>"; 
+                        echo "<p>".$lignePoursuiteEtude['formation']."</p>"; 
+                        echo "<p>".$lignePoursuiteEtude['anneeFormation']."</p>";   
+                        echo "<p>".$lignePoursuiteEtude['etablissement']."</p>"; 
+                        echo "<p>".$lignePoursuiteEtude['ville']."</p>"; 
                     ?>  
                     <div id="sous_profil_etude">
                         <h2>Dernier stage</h2>
                     </div>
-                </div>
-                
+                </div>           
                 <div id="profil_entreprise">
+                    <?php   
+                        echo "<p>".$ligneParcourspro['libelle']."</p>"; 
+                        echo "<p>".$ligneParcourspro['anneeEmbauche']."</p>";   
+                        echo "<p>".$ligneParcourspro['entreprise']."</p>"; 
+                        echo "<p>".$ligneParcourspro['ville']."</p>"; 
+                    ?>
+                    <div id="sous_profil_entreprise">
+                        <h2>Profession</h2>
+                    </div>
                 </div>
             </div> 
             <div id="box_profil_bottom">

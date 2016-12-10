@@ -434,7 +434,7 @@ h3{
     overflow: hidden;
     display: block;
     max-width: 90%;
-    margin: 70px auto auto auto;
+    margin: 10px auto auto auto;
     padding-bottom: 1%; 
     border : solid 2px black;
 }
@@ -451,6 +451,37 @@ h3{
     vertical-align: baseline; ;
 }
 
+#box_profil_top{
+    overflow: hidden;
+    display: block;
+    min-width: 80%;
+    max-width: 80%;
+    margin: 20px auto auto auto;
+    padding-bottom: 1%; 
+    border : solid 2px black;
+}
+
+#box_profil_top h2 {
+    text-align: right;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 0 0 0.2em 0;
+    padding-right: 4%;
+    letter-spacing: -0.025em;
+    color : #EAEAEA;
+}
+
+#box_profil_center{
+    overflow: hidden;
+    display: block;
+    min-width: 80%;
+    max-width: 80%;
+    margin: 20px auto auto auto;
+    padding-bottom: 1%; 
+    border : solid 2px black;
+}
+
 #box_profil_center p{
     color : #EAEAEA;
     font: inherit;
@@ -462,31 +493,24 @@ h3{
     font-size: 100%;
     font: inherit;
     vertical-align: baseline; ;
+    padding: 2% 1% 1% 6%;
 }
 
-#box_profil_top{
-    overflow: hidden;
-    display: block;
-    max-width: 90%;
-    margin: 70px auto auto auto;
-    padding-bottom: 1%; 
-    border : solid 2px black;
-}
-
-#box_profil_center{
-    overflow: hidden;
-    display: block;
-    max-width: 90%;
-    margin: 70px auto auto auto;
-    padding-bottom: 1%; 
-    border : solid 2px black;
+#box_profil_center h2 {
+    text-align: right;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 0 0 0.2em 0;
+    padding-right: 4%;
+    letter-spacing: -0.025em;
 }
 
 #box_profil_bottom{
     overflow: hidden;
     display: block;
-    max-width: 90%;
-    margin: 70px auto auto auto;
+    max-width: 80%;
+    margin: 20px auto auto auto;
     padding-bottom: 1%; 
     border : solid 2px black;
 }
@@ -494,9 +518,9 @@ h3{
 #profil_picture{
     background-color: #EF5350;
     float: left;
-    min-width: 25%;
+    min-width: 35%;
     margin: 1% auto auto 5%;
-    padding: 5% 1% 10% 1%;
+    padding-top: 15%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -507,20 +531,27 @@ h3{
 #profil_information{
     background-color: #ECEFF1;
     float: left;
-    min-width: 25%;;
+    min-width: 35%;
     margin: 1% auto auto 5%;
-    padding: 5% 1% 10% 1%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding-top: 12%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
 }
 
 #profil_information:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
+#sous_profil_information{
+    padding-bottom: 1%;
+    border:none;
+    display:block;
+    background-color : #EF5350;
+}
+
 #profil_etude{
     background-color: #42A5F5;
     float: left;
-    min-width: 25%;
+    min-width: 35%;
     margin: 1% auto auto 5%;
     padding-top: 1%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);    
@@ -530,13 +561,8 @@ h3{
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-#profil_etude p {
-  padding: 2% 1% 1% 6%;
-}
-
-
 #sous_profil_etude{
-    padding-bottom: 10%;
+    padding-bottom: 1%;
     border:none;
     display:block;
     background-color : #ECEFF1;
@@ -545,20 +571,27 @@ h3{
 #profil_entreprise{
     background-color: #42A5F5;
     float: left;
-    min-width: 25%;
+    min-width: 35%;
     margin: 1% auto auto 5%;
-    padding: 5% 1% 10% 1%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding-top: 1%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);   
 }
 
 #profil_entreprise:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
+#sous_profil_entreprise{
+    padding-bottom: 1%;
+    border:none;
+    display:block;
+    background-color : #ECEFF1;
+}
+
 #profil_competence{
   background-color: #D4E157;
   float: left;
-  min-width: 25%;
+  min-width: 73%;
   margin: 1% auto auto 5%;
   padding: 5% 1% 10% 1%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
