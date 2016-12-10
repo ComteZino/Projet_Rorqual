@@ -17,12 +17,13 @@
 
     $idEtud = $_SESSION['$idEtud'];
     
-    $tableuser="SELECT nom, prenom FROM professionnel WHERE idEtud='".$idEtud."'";
+    $tableuser="SELECT * FROM professionnel WHERE idEtud='".$idEtud."'";
     $table = $connexion->query($tableuser);
     $ligne = $table -> fetch();
     
     $nom=$ligne['nom'];
     $prenom=$ligne['prenom'];
+    $idEtud=$ligne['idEtud'];
     
     $titre = htmlentities($_POST["titre"]);
     $contenu = htmlentities($_POST["contenu"]);
@@ -31,7 +32,7 @@
 
 
     
-    $ajout_temoignage = ('INSERT INTO temoignage VALUES (3,"'.$nom.$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idCursus.'")');
+    $ajout_temoignage = ('INSERT INTO temoignage VALUES (2,"'.$nom.$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idCursus.'","'.$idEtud.'")');
     //echo $ajout_temoignage;
     $exec_temoig = $connexion->exec($ajout_temoignage);
  

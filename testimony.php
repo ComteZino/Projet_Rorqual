@@ -10,12 +10,10 @@
 
     require_once('connexionBD.php');
     
-    $testimony="SELECT * FROM temoignage";     
-    $table = $connexion->query($testimony);
-    
     $_SESSION["page"] = "testimony";
     
-
+    $testimony="SELECT * FROM temoignage";     
+    $table = $connexion->query($testimony);
 ?>
 
 <!DOCTYPE HTML>
@@ -69,14 +67,14 @@
                         echo '<h2 id="h2_testimony"><a href="select-testimony.php?id='.$ligne['idTemoignage'].'">'.  $ligne['titre'] .'</a></h2>';
                         echo "<p>".$ligne['auteur']."</p>";
                         echo "<p>".$ligne['date']."</p>";        
-                        
-                        
+                         
                         $niveau="SELECT niveau FROM cursus WHERE  idCursus=".$ligne['cursus_idCursus']."";
-                        $table = $connexion->query($niveau);
-                        $ligne = $table -> fetch();
-                        $niveau=$ligne['niveau'];
-                        
-                        echo "<p>".$niveau."</p>";
+                        $table2 = $connexion->query($niveau);
+                        while($ligne2 = $table2->fetch())
+                        {
+                            echo "<p>".$ligne2['niveau']."</p>";
+                        }
+                       
                         echo '</div>';
                     }
             ?>                       

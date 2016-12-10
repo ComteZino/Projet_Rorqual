@@ -24,13 +24,21 @@
     $table = $connexion->query($information);
     $ligne = $table -> fetch();
     
-    $parcourspro="SELECT * FROM parcourspro,professionnel WhERE professionnel.idEtud=parcourspro.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $parcourspro="SELECT * FROM parcourspro,professionnel WHERE professionnel.idEtud=parcourspro.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
     $tableParcourspro = $connexion->query($parcourspro);
     $ligneParcourspro = $tableParcourspro -> fetch();
     
-    $poursuiteEtude="SELECT * FROM poursuiteetude,professionnel WhERE professionnel.idEtud=poursuiteetude.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $poursuiteEtude="SELECT * FROM poursuiteetude,professionnel WHERE professionnel.idEtud=poursuiteetude.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
     $tablePoursuiteEtude = $connexion->query($poursuiteEtude);
     $lignePoursuiteEtude = $tablePoursuiteEtude -> fetch();
+    
+    
+    
+    $testimony="SELECT * FROM temoignage,professionnel WhERE professionnel.idEtud=temoignage.professionnel_idEtud AND professionnel.idEtud='".$idEtud."'";
+    $tableTestimony = $connexion->query($testimony);
+    $ligneTestimony = $tableTestimony -> fetch();
+    
+    
 ?>
 
 <!DOCTYPE HTML>
@@ -121,7 +129,23 @@
                         <h2>Mes compétences</h2>
                     </div>
                 </div> 
-            </div>     
+            </div>   
+            <div id="box_profil_footer">
+                <div id="profil_testimony">
+                    <?php                    
+                        $testimony2="SELECT * FROM temoignage";     
+                        $table2 = $connexion->query($testimony2);
+                        
+                        while($ligne2 = $table2->fetch())
+                        {
+                           echo '<h2 id="h2_testimony"><a href="select-testimony.php?id='.$ligne2['idTemoignage'].'">'.  $ligne2['titre'] .'</a></h2>'; 
+                        }
+                    ?>
+                    <div id="sous_profil_testimony">
+                        <h2>Mes témoignages</h2>
+                    </div>
+                </div> 
+            </div> 
         </div>    
     </div>        
 
