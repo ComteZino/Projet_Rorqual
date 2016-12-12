@@ -29,11 +29,21 @@
     $contenu = htmlentities($_POST["contenu"]);
     $date = date("Y-m-d-");
     $idCursus = htmlentities($_POST["cursus"]);
+    
+    $selectIdTemoignage = $connexion->query('Select * from temoignage');
+    $idTemoignage = 0;
+    while($ligneid = $selectIdTemoignage->fetch()) // créé un nouvel id pour le compte de l'utilisateur/administrateur
+    {
+        $idTemoignage = $ligneid["idTemoignage"];
+    }
+    $idTemoignage = $idTemoignage + 1;
 
 
     
-    $ajout_temoignage = ('INSERT INTO temoignage VALUES (2,"'.$nom." ".$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idEtud.'","'.$idCursus.'")');
+    $ajout_temoignage = ('INSERT INTO temoignage VALUES ("'.$idTemoignage.'","'.$nom." ".$prenom.'","'.$titre.'","'.$contenu.'","'.$date.'","'.$idEtud.'","'.$idCursus.'")');
     //echo $ajout_temoignage;
     $exec_temoig = $connexion->exec($ajout_temoignage);
+    
+    header("refresh:1;url=../testimony.php");
  
  ?>

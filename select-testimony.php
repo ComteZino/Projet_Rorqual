@@ -68,7 +68,7 @@
                 <div class="categorie">
                     <p><span id="categorie">
                         <?php
-                            $niveau="SELECT niveau FROM cursus WHERE  idCursus=".$ligne['cursus_idCursus']."";
+                            $niveau="SELECT niveau FROM cursus WHERE  idCursus=".$ligne['idCursus']."";
                             $table2 = $connexion->query($niveau);
                             $ligne2 = $table2 -> fetch();
                             $niveau=$ligne2['niveau'];
@@ -87,7 +87,7 @@
 
                 <div class="auteur_date">
                     </br>
-                    <p>Témoignage posté par <span id="auteur"><?php echo $ligne["auteur"]; ?></span> le <span id="date"><?php echo $ligne["date"];?></span></p>
+                    <p>Témoignage posté par <span id="auteur"><?php echo $ligne["auteur"]; ?></span> le <span id="date"><?php echo $ligne["dateTemoignage"];?></span></p>
                 </div>
             </div> 
         </div>    
